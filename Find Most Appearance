@@ -1,0 +1,23 @@
+def findMostAppearances(lst):
+    dict = {}
+    #
+    for i in lst:
+        dict.setdefault(i, 0)
+    for i in lst:
+        for k in dict.keys():
+            if i == k:
+                dict[k] = dict[k] + 1
+    s = 0
+    for i in dict.keys():
+        if dict[i] > s:
+            s = dict[i]
+    result = []
+    for i in dict.keys():
+        if dict[i] == s:
+            result.append(i)
+    return result
+
+
+
+a = [1, 2, 3, 4, 8, 5, 4, 1, 2, 4, 5,2]
+print(findMostAppearances(a))
